@@ -1,0 +1,50 @@
+{
+    "name": "custom.python.ssh_connections",
+    "version": "1.0",
+    "type": "python",
+    "entity": "HOST",
+    "metricGroup": "ssh_connections.host",
+    "processTypeNames": ["LINUX_SYSTEM"],
+    "source": {
+      "package": "sshconnections",
+      "className": "SSHConnections",
+      "install_requires": [],
+      "activation": "Singleton"
+    },
+    "metrics": [
+      {
+        "timeseries": {
+          "key": "ssh_connections",
+          "unit": "Count",
+          "displayname": "SSH Connections"
+        }
+      }
+    ],
+    "configUI": {
+      "displayName": "SSH Connections",
+      "properties" : [
+        { "key" : "debug", "displayName": "Debug logging"}
+      ]
+    },
+    "properties": [
+      {
+        "key": "debug",
+        "type": "Boolean",
+        "defaultValue": false
+      }
+    ],
+    "ui": {
+      "keycharts" : [
+        {
+          "group" : "SSH Connections",
+          "title" : "SSH Connections",
+          "series" : [
+            {
+              "key" : "ssh_connections",
+              "displayname" : "SSH Connections"
+            }
+          ]
+        }
+      ]
+    }
+  }
